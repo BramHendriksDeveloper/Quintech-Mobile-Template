@@ -103,11 +103,12 @@ com.quintech.mobile.template.util.Controller.extend("com.quintech.mobile.templat
 	 * display NotFound view
 	 */
 	showEmptyView: function() {
-		this.getRouter().myNavToWithoutHash({
-			currentView: this.getView(),
-			targetViewName: "com.quintech.mobile.template.view.NotFound",
-			targetViewType: "XML"
-		});
+		this.getRouter().navTo("NotFound");
+		// myNavToWithoutHash({
+		// 	currentView: this.getView(),
+		// 	targetViewName: "com.quintech.mobile.template.view.NotFound",
+		// 	targetViewType: "XML"
+		// });
 	},
 
 	/**

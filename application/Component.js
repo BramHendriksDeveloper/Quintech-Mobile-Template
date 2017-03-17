@@ -1,6 +1,5 @@
 jQuery.sap.declare("com.quintech.mobile.template.Component");
 jQuery.sap.require("com.quintech.mobile.template.dev.devapp");
-jQuery.sap.require("com.quintech.mobile.template.MyRouter");
 
 sap.ui.core.UIComponent.extend("com.quintech.mobile.template.Component", {
 	metadata : {
@@ -25,6 +24,8 @@ sap.ui.core.UIComponent.extend("com.quintech.mobile.template.Component", {
 			bundleUrl: [oRootPath, mConfig.resourceBundle].join("/")
 		});
 		this.setModel(i18nModel, "i18n");
+		
+		this.getRouter().initialize();
 
 		var oModel;
 		var externalURL = com.quintech.mobile.template.dev.devapp.externalURL;

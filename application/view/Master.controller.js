@@ -43,11 +43,12 @@ com.quintech.mobile.template.util.Controller.extend("com.quintech.mobile.templat
 		}
 
 		//Load the detail view in desktop
-		this.getRouter().myNavToWithoutHash({
-			currentView: this.getView(),
-			targetViewName: "com.quintech.mobile.template.view.Detail",
-			targetViewType: "XML"
-		});
+		this.getRouter().navTo("Detail");
+		// myNavToWithoutHash({
+		// 	currentView: this.getView(),
+		// 	targetViewName: "com.quintech.mobile.template.view.Detail",
+		// 	targetViewType: "XML"
+		// });
 
 		//Wait for the list to be loaded once
 		this.waitForInitialListLoading(function() {
