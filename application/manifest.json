@@ -1,0 +1,127 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.1.0",
+		"id": "com.quintech.mobile.template",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.32.0"
+		}
+	},
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": {
+			"viewName": "com.quintech.mobile.template.view.App",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.quintech.mobile.template.i18n.i18n"
+				}
+			},
+			"@i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.quintech.mobile.template.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"config": {
+			"resourceBundle": "i18n/messageBundle.properties",
+			"serviceConfig": {
+				"name": "Northwind",
+				"serviceUrl": "/V3/Northwind/Northwind.svc/"
+			}
+		},
+		"routing": {
+			"config": {
+				"viewType": "XML",
+				"viewPath": "com.quintech.mobile.template.view",
+				"targetAggregation": "pages",
+				"clearTarget": true,
+				"bypassed": {
+					"target": "notFound"
+				}
+			},
+			"routes": [{
+	        	"pattern": "",
+	        	"name": "main",
+	        	"view": "Master",
+	        	"targetAggregation": "masterPages",
+	        	"targetControl": "idAppControl",
+	        	"subroutes": [{
+	            	"pattern": "{entity}/:tab:",
+	            	"name": "detail",
+	            	"view": "Detail"
+	        }]
+	    	}, {
+	        	"name": "catchallMaster",
+	        	"view": "Master",
+	        	"targetAggregation": "masterPages",
+	        	"targetControl": "idAppControl",
+	        	"subroutes": [{
+	            	"pattern": ":all*:",
+	            	"name": "catchallDetail",
+	            	"view": "NotFound",
+	            	"transition": "show"
+	        	}]
+	    	}],
+			"targets": {
+				"notFound": {
+					"viewName": "NotFound",
+					"transition": "show",
+					"targetControl": "idAppControl"
+				}
+			}
+		}
+	}
+}
